@@ -1,0 +1,11 @@
+{
+	"name": "proxy-cache",
+	"version": "0.0.0",
+	"author": "Evgeny Reznichenko <kusakyky@gmaill.com>",
+	"dependencies": {},
+	"devDependencies": {
+		"should": "*",
+		"mocha": "*",
+		"superagent": "*"
+	}
+}
