@@ -1,7 +1,7 @@
 {
 	"name": "node-http-proxy-cache",
 	"description": "Http caching proxy for the development clients to different websites and api",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"author": "Evgeny Reznichenko <kusakyky@gmaill.com>",
 	"dependencies": {},
 	"devDependencies": {
@@ -11,7 +11,9 @@
 	},
 	"repository": "https://github.com/zxcabs/node-proxy-cache",
 	"main": "./lib/index.js",
-	"scripts": {},
+	"scripts": {
+		"test": "NODE_ENV=test ./node_modules/.bin/mocha -r should -R spec"
+	},
 	"engines": {
 		"node": "0.10"
 	}
