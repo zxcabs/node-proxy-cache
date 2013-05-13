@@ -1,10 +1,13 @@
 {
 	"name": "node-http-proxy-cache",
 	"description": "Http caching proxy for the development clients to different websites and api",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"author": "Evgeny Reznichenko <kusakyky@gmaill.com>",
-	"dependencies": {},
+	"dependencies": {
+		"async": "0.2.8"
+	},
 	"devDependencies": {
+		"async": "*",
 		"should": "*",
 		"mocha": "*",
 		"superagent": "*"
