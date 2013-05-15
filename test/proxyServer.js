@@ -94,7 +94,8 @@ describe('ProxyServer', function () {
 
 		after(function (done) {
 			proxy.close(function () {
-				server.close(done);
+				server.close();
+				done();
 			});
 		});
 
@@ -192,7 +193,8 @@ describe('ProxyServer', function () {
 
 		after(function (done) {
 			proxy.close(function () {
-				server.close(done);
+				server.close();
+				done();
 			});
 		});;
 
