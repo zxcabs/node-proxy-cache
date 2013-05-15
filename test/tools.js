@@ -32,4 +32,17 @@ describe('tools', function () {
 		});
 
 	});
+
+	/**
+	 * Test for #getEndHeaderIndex
+	 */
+	describe('#getEndHeaderIndex', function () {
+		var raw = new Buffer('GET / HTTP/1.1\r\nHost: localhost\r\n\r\n'),
+			last = raw.length - 4;
+
+		it('should return ' + last, function () {
+			var index = tools.getEndHeaderIndex(raw);
+			index.should.eql(last);
+		});
+	});
 });

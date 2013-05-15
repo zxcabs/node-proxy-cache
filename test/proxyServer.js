@@ -69,11 +69,13 @@ describe('ProxyServer', function () {
 	 * Test for proxy
 	 */
 	describe('proxy', function () {
-		var server, requestCount, proxy;
+		var server, requestCount, proxy,
+			lastRequestHeaders;
 
 		requestCount = 0;
 		server = http.createServer(function (req, res) {
 			requestCount += 1;
+			lastRequestHeaders = req.headers;
 			res.writeHead(200, { 'Content-Type': 'text/plain' });
 			res.end('Hello');
 		});
@@ -99,6 +101,7 @@ describe('ProxyServer', function () {
 		beforeEach(function () {
 			proxy.reset();
 			requestCount = 0;
+			lastRequestHeaders = null;
 		});
 
 
@@ -120,6 +123,16 @@ describe('ProxyServer', function () {
 			}
 
 			makeReq(makeReq(done))();
+		});
+
+		it('should change host', function (done) {
+			req
+				.get('localhost:' + LOCAL_PROXY_PORT)
+				.end(function (err, res) {
+					should.not.exist(err);
+					lastRequestHeaders.should.have.property('host', proxy.dest.host + ':' + proxy.dest.port);
+					done();
+				});
 		});
 	});
 
